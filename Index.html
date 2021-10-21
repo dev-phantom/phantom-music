@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="fontawesome/css/all.css"/>
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Phantom Music Player</title>
+    <script src="/js/jquery.js"></script>
+  </head>
+  <body>
+    <div class="Phantom">Phantom</div>
+    <div class="head">Music Player</div>
+      <div class="img-container">
+        <img src="img10.jpg" alt="music-cover" id="cover" />
+      </div>
+
+    <div class="music-container" id="music-container">
+             <div class="music-info" id="music-info">
+        <h4 id="title"></h4>
+        <div class="progress-container" id="progress-container">
+          <div class="progress" id="progress"></div>
+        </div>
+      </div>
+       <audio src="CKay.mp3" id="audio"></audio>
+      <div class="navigation">
+        <a href="music.html">
+        <button id="playlist" class="action-btn">
+       <i class="fas fa-bars"></i>
+        </button>
+        </a>
+        <button id="prev" class="action-btn">
+          <i class="fas fa-backward"></i>
+        </button>
+        <button id="play" class="action-btn action-btn-big">
+          <i class="fas fa-play"></i>
+        </button>
+        <button id="next" class="action-btn">
+          <i class="fas fa-forward"></i>
+        </button>
+        <button id="mute" class="action-btn">
+        <i class="fas fa-volume-mute"></i>
+        </button>
+      </div>
+   <p><button type="button" onclick="runSpeechRecognition()" class="action-btn action-btn-big"><i class="fas fa-microphone"></i></button> &nbsp; <span id="action"></span></p>
+        <div id="output" class="hide"></div>
+<footer>
+  Powered By <span>Phantom musica</span>
+</footer>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

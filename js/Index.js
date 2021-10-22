@@ -5,6 +5,7 @@ const playlistBtn = document.getElementById('playlist');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const muteBtn = document.getElementById('mute');
+const shuffleBtn = document.getElementById('shuffle');
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
@@ -95,7 +96,15 @@ function unmuteSong() {
   muteBtn.querySelector('i.fas').classList.add('fa-volume-mute');
    audio.muted = false;
 }
+//shuffle song
+function shuffleSong(){
+Math.floor(Math.random(songs) * songIndex);
+songIndex = Math.floor(Math.random() * 4);
 
+  loadSong(songs[songIndex]);
+
+  playSong();
+}
 // Update progress bar
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
@@ -137,6 +146,8 @@ muteBtn.addEventListener('click', () => {
 // Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+// shuffle song
+shuffleBtn.addEventListener('click',shuffleSong);
 //playlist songs
 playlistBtn.addEventListener('click',playlist);
 // Time/song update
@@ -200,6 +211,9 @@ function runSpeechRecognition() {
                     }
                     else if (transcript == "unmute" || transcript == "unmute song") {
                     return unmuteSong()
+                    }
+                    else if (transcript == "shuffle" || transcript == "shuffle song") {
+                    return shuffleSong()
                     }
                     else{
                       return pauseSong();

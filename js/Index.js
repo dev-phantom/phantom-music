@@ -191,6 +191,9 @@ function runSpeechRecognition() {
                 // This runs when the speech recognition service returns result
                 recognition.onresult = function(event) {
                     var transcript = event.results[0][0].transcript;
+var confidence = event.results[0][0].confidence;
+                    output.innerHTML = "<b>Text:</b> " + transcript ;
+                   
                      output.classList.remove("hide");
                                         if (transcript == "play" || transcript == "play song") {
                      return playSong();

@@ -181,7 +181,7 @@ function runSpeechRecognition() {
                 recognition.onresult = function(event) {
                     var transcript = event.results[0][0].transcript;
                     var confidence = event.results[0][0].confidence;
-                    output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
+                    output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Strength:</b> " + confidence*100+"%";
                     output.classList.remove("hide");
                                         if (transcript == "play" || transcript == "play song") {
                      return playSong();

@@ -104,6 +104,7 @@ function unmuteSong() {
 }
 //shuffle song
 function shuffleSong(){
+<<<<<<< HEAD
   
 Math.floor(Math.random(songs) * songIndex);
 songIndex = Math.floor(Math.random() * 4);
@@ -111,7 +112,15 @@ songIndex = Math.floor(Math.random() * 4);
 
   playSong();
 }
+=======
+Math.floor(Math.random(songs) * songIndex);
+songIndex = Math.floor(Math.random() * 4);
+>>>>>>> 2cb6c43bd5c0eb64b275533c94af4e2889872597
 
+  loadSong(songs[songIndex]);
+
+  playSong();
+}
 // Update progress bar
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
@@ -156,6 +165,13 @@ shuffleBtn.addEventListener('click', shuffleSong);
 // Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
+<<<<<<< HEAD
+=======
+// shuffle song
+shuffleBtn.addEventListener('click',shuffleSong);
+//playlist songs
+playlistBtn.addEventListener('click',playlist);
+>>>>>>> 2cb6c43bd5c0eb64b275533c94af4e2889872597
 // Time/song update
 audio.addEventListener('timeupdate', updateProgress);
 
@@ -197,9 +213,10 @@ function runSpeechRecognition() {
                 // This runs when the speech recognition service returns result
                 recognition.onresult = function(event) {
                     var transcript = event.results[0][0].transcript;
-                    var confidence = event.results[0][0].confidence;
-                    output.innerHTML = "<b>Text:</b> " + transcript + "<br/> <b>Confidence:</b> " + confidence*100+"%";
-                    output.classList.remove("hide");
+var confidence = event.results[0][0].confidence;
+                    output.innerHTML = "<b>Text:</b> " + transcript + "";
+                   
+                     output.classList.remove("hide");
                                         if (transcript == "play" || transcript == "play song") {
                      return playSong();
                     }

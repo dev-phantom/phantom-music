@@ -25,11 +25,6 @@
       </div>
        <audio src="CKay.mp3" id="audio"></audio>
       <div class="navigation">
-        <a href="music.html">
-        <button id="playlist" class="action-btn">
-       <i class="fas fa-bars"></i>
-        </button>
-        </a>
         <button id="prev" class="action-btn">
           <i class="fas fa-backward"></i>
         </button>
@@ -39,15 +34,30 @@
         <button id="next" class="action-btn">
           <i class="fas fa-forward"></i>
         </button>
-        <button id="mute" class="action-btn">
-        <i class="fas fa-volume-mute"></i>
-        </button>
+
       </div>
+      <div class="navigation">
+  <button id="playlist" class="action-btn" ondblclick="clos()">
+  <i class="fas fa-bars" ></i>
+  </button>
+  <button id="shuffle" class="action-btn">
+  <i class="fas fa-random" ></i>
+  </button>
    <p><button type="button" onclick="runSpeechRecognition()" class="action-btn action-btn-big"><i class="fas fa-microphone"></i></button> &nbsp; <span id="action"></span></p>
         <div id="output" class="hide"></div>
+  <button id="timer" class="action-btn">
+  <i class="fas fa-stopwatch"></i>
+  </button>
+  <button id="mute" class="action-btn">
+  <i class="fas fa-volume-mute"></i>
+  </button>
+   </div>
+   <div id="playlist-item">
+   </div>
 <footer>
   Powered By <span>Phantom musica</span>
 </footer>
+</div>
     <script src="/js/index.js"></script>
   </body>
 </html>

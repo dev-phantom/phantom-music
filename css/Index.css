@@ -155,6 +155,9 @@ background: #595859;
 			.show {
 			    display:block;
 			}
+.playlist {
+  display: none;
+}
 footer > span{
   color: orangered;
   font-weight: bolder;

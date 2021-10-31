@@ -2,9 +2,11 @@ const musicContainer = document.getElementById('music-container');
 const musicInfo = document.getElementById('music-info');
 const playBtn = document.getElementById('play');
 const playlistBtn = document.getElementById('playlist');
+let playlistItems = document.getElementById('playlist-item');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const muteBtn = document.getElementById('mute');
+const shuffleBtn = document.getElementById('shuffle');
 const audio = document.getElementById('audio');
 const progress = document.getElementById('progress');
 const progressContainer = document.getElementById('progress-container');
@@ -12,18 +14,16 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const durTime = document.querySelector('#durTime');
-
 // Song titles
 const songs = [
     'Lie - kizz daniel',
     'Ayra star - bloody Samaritan',
     'CKay - love nwantiti',
     'Ayra starr - away'
-    
 ];
 
 // Keep track of song
-let songIndex = 2;
+let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
@@ -53,7 +53,18 @@ function pauseSong() {
 }
 //playlist
 function playlist() {
-  document.getElementById("playlists").innerHTML = song;
+myLoop: 
+for (var i = 0; i < songs.length; i++) {
+
+  var buttons = document.createElement("button");
+  buttons.innerHTML = songs[i];
+  let songIndex = i;
+  buttons.addEventListener("click", function() {
+      loadSong(songs[songIndex]);
+      playSong();
+  })
+  playlistItems.appendChild(buttons);
+}
 }
 // Previous song
 function prevSong() {
@@ -62,9 +73,7 @@ function prevSong() {
   if (songIndex < 0) {
     songIndex = songs.length - 1;
   }
-
   loadSong(songs[songIndex]);
-
   playSong();
 }
 
@@ -75,9 +84,7 @@ function nextSong() {
   if (songIndex > songs.length - 1) {
     songIndex = 0;
   }
-
   loadSong(songs[songIndex]);
-
   playSong();
 }
 //mute song
@@ -94,6 +101,15 @@ function unmuteSong() {
   muteBtn.querySelector('i.fas').classList.remove('fa-volume-up');
   muteBtn.querySelector('i.fas').classList.add('fa-volume-mute');
    audio.muted = false;
+}
+//shuffle song
+function shuffleSong(){
+  
+Math.floor(Math.random(songs) * songIndex);
+songIndex = Math.floor(Math.random() * 4);
+  loadSong(songs[songIndex]);
+
+  playSong();
 }
 
 // Update progress bar
@@ -133,12 +149,13 @@ muteBtn.addEventListener('click', () => {
     muteSong();
   }
 });
-
+// playlists
+playlistBtn.addEventListener('click', playlist);
+//shuffle song
+shuffleBtn.addEventListener('click', shuffleSong);
 // Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-//playlist songs
-playlistBtn.addEventListener('click',playlist);
 // Time/song update
 audio.addEventListener('timeupdate', updateProgress);
 
@@ -146,7 +163,7 @@ audio.addEventListener('timeupdate', updateProgress);
 progressContainer.addEventListener('click', setProgress);
 
 // Song ends
-audio.addEventListener('ended', nextSong);
+audio.addEventListener('ended', nextSong,);
 
 // Time of song
 audio.addEventListener('timeupdate',DurTime);
@@ -200,6 +217,9 @@ function runSpeechRecognition() {
                     }
                     else if (transcript == "unmute" || transcript == "unmute song") {
                     return unmuteSong()
+                    }
+                    else if (transcript == "shuffle" || transcript == "shuffle song") {
+                    return shuffleSong()
                     }
                     else{
                       return pauseSong();

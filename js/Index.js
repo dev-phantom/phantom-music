@@ -53,9 +53,7 @@ function pauseSong() {
 }
 //playlist
 function playlist() {
-myLoop: 
 for (var i = 0; i < songs.length; i++) {
-
   var buttons = document.createElement("button");
   buttons.innerHTML = songs[i];
   let songIndex = i;
@@ -104,23 +102,13 @@ function unmuteSong() {
 }
 //shuffle song
 function shuffleSong(){
-<<<<<<< HEAD
-  
 Math.floor(Math.random(songs) * songIndex);
 songIndex = Math.floor(Math.random() * 4);
   loadSong(songs[songIndex]);
 
   playSong();
 }
-=======
-Math.floor(Math.random(songs) * songIndex);
-songIndex = Math.floor(Math.random() * 4);
->>>>>>> 2cb6c43bd5c0eb64b275533c94af4e2889872597
 
-  loadSong(songs[songIndex]);
-
-  playSong();
-}
 // Update progress bar
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
@@ -165,13 +153,12 @@ shuffleBtn.addEventListener('click', shuffleSong);
 // Change song
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
-<<<<<<< HEAD
-=======
+
 // shuffle song
 shuffleBtn.addEventListener('click',shuffleSong);
 //playlist songs
 playlistBtn.addEventListener('click',playlist);
->>>>>>> 2cb6c43bd5c0eb64b275533c94af4e2889872597
+
 // Time/song update
 audio.addEventListener('timeupdate', updateProgress);
 

@@ -10,19 +10,30 @@
   src: url("/fonts/grand.ttf");
 }
 body {
- border-radius: 25px;
-background: #f2f2f2;
-box-shadow: inset -5px -5px 10px #c9c9c9,
-            inset 5px 5px 10px #ffffff;
-  
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  font-family: 'Lato', sans-serif;
+}
+.main-container{
+  margin-top: 1rem;
+  border-radius: 25px;
+  background: #f2f2f2;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30), 0 11px 8px rgba(0, 0, 0, 0.22);
+
   height: 100vh;
   display: flex;
+  width:50%;
   flex-direction: column;
   text-align: center;
-  font-family: 'Lato', sans-serif;
-  margin: 0;
+
 }
+
+.card{
+  width: 100%;
+}
+
 .Phantom{
   color: #222;
   
@@ -104,6 +115,10 @@ box-shadow: inset -5px -5px 10px #c9c9c9,
 padding: 0;
 margin-top: 1rem;
 background: unset;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
 width: 100%;
 
 }
@@ -111,7 +126,7 @@ width: 100%;
 .music-info {
 background: #595859;
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
   padding:20px;
   color: #fff;
   z-index: 0;
@@ -167,4 +182,30 @@ footer {
   font-size: 20px;
   text-align: center;
   font-weight: bold;
+}
+
+.timer{
+  display: none;
+  
+}
+.timer-container{
+  display: flex;
+
+}
+.button-timer{
+  padding-left: .5rem;
+}
+.button-timer > button{
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  background: #dbdbdb;
+  width: 6rem;
+  height: 2.5rem;
+  
+}
+@media screen and (max-width: 768px) {
+  .main-container{
+    width: 90%;
+  }
 }

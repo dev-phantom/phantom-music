@@ -13,7 +13,76 @@ const progressContainer = document.getElementById('progress-container');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
-const durTime = document.querySelector('#durTime');
+const timeInfo = document.querySelector('#time-info')
+// const timerBtn = document.querySelector('#timer');
+
+$('#timer').click(function(){
+  $('#timer-info').toggle()
+})
+let test = true;
+let timeOut
+function millsTomin(mills) {
+  let min = Math.floor(mills / 60000)
+  let sec = ((mills % 60000) / 1000 ).toFixed(0)
+  return (
+    sec == 60 ? 
+    (min + 1) + ":00" :
+    min + ":" +(sec < 10 ? "0" : "") + sec
+  )
+
+}
+let sol = millsTomin(900000)
+console.log(sol)
+function fifteen() {
+  test = true
+
+  document.querySelector('#timer-info').style.display = "none";
+  timeInfo.innerText = "the music will off in the next 15mins"
+
+  let timerOut = setTimeout(function(){
+    timeInfo.style.display = "none"
+  },5000)
+
+  timeOut = setTimeout(function(){
+    pauseSong()
+  },900000)
+}
+function thirty() {
+  test = true
+
+  document.querySelector('#timer-info').style.display = "none";
+  timeInfo.innerText = "the music will off in the next 30mins"
+
+  let timerOut = setTimeout(function(){
+    timeInfo.style.display = "none"
+  },5000)
+
+  timeOut = setTimeout(function(){
+    pauseSong()
+  },1800000)
+}
+function fourty(timeOut) {
+  test = true
+
+  document.querySelector('#timer-info').style.display = "none";
+  timeInfo.innerText = "the music will off in the next 45mins"
+
+  let timerOut = setTimeout(function(){
+    timeInfo.style.display = "none"
+  },5000)
+
+  timeOut = setTimeout(function(){
+    pauseSong()
+  },240000)
+}
+function off() {
+    document.querySelector('#timer-info').style.display = "none";
+
+  timeInfo.innerText = "the timer has stopped"
+
+  clearInterval(timeOut)
+  test = false
+}
 // Song titles
 const songs = [
     'Lie - kizz daniel',
@@ -53,16 +122,17 @@ function pauseSong() {
 }
 //playlist
 function playlist() {
-for (var i = 0; i < songs.length; i++) {
-  var buttons = document.createElement("button");
-  buttons.innerHTML = songs[i];
-  let songIndex = i;
-  buttons.addEventListener("click", function() {
-      loadSong(songs[songIndex]);
-      playSong();
-  })
-  playlistItems.appendChild(buttons);
-}
+  console.log(songs)
+// for (var i = 0; i < songs.length; i++) {
+//   var buttons = document.createElement("button");
+//   buttons.innerHTML = songs[i];
+//   let songIndex = i;
+//   buttons.addEventListener("click", function() {
+//       loadSong(songs[songIndex]);
+//       playSong();
+//   })
+//   playlistItems.appendChild(buttons);
+//}
 }
 // Previous song
 function prevSong() {
@@ -109,6 +179,8 @@ songIndex = Math.floor(Math.random() * 4);
   playSong();
 }
 
+
+
 // Update progress bar
 function updateProgress(e) {
   const { duration, currentTime } = e.srcElement;
@@ -122,9 +194,15 @@ function setProgress(e) {
   const clickX = e.offsetX;
   const duration = audio.duration;
 
+
   audio.currentTime = (clickX / width) * duration;
 }
 
+
+// function Timer() {
+//   timerInfo.style.display ="flex"
+
+// }
 
 // Event listeners play and pause
 playBtn.addEventListener('click', () => {
@@ -146,6 +224,7 @@ muteBtn.addEventListener('click', () => {
     muteSong();
   }
 });
+// timerBtn.addEventListener('click', Timer);
 // playlists
 playlistBtn.addEventListener('click', playlist);
 //shuffle song
@@ -169,7 +248,7 @@ progressContainer.addEventListener('click', setProgress);
 audio.addEventListener('ended', nextSong,);
 
 // Time of song
-audio.addEventListener('timeupdate',DurTime);
+
 function runSpeechRecognition() {
     let songvoice =  [
     'Lie',
@@ -200,7 +279,7 @@ function runSpeechRecognition() {
                 // This runs when the speech recognition service returns result
                 recognition.onresult = function(event) {
                     var transcript = event.results[0][0].transcript;
-var confidence = event.results[0][0].confidence;
+                    var confidence = event.results[0][0].confidence;
                     output.innerHTML = "<b>Text:</b> " + transcript + "";
                    
                      output.classList.remove("hide");

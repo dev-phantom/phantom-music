@@ -5,59 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="fontawesome/css/all.css"/>
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="./css/Index.css" />
     <title>Phantom Music Player</title>
     <script src="/js/jquery.js"></script>
   </head>
   <body>
-    <div class="Phantom">Phantom</div>
-    <div class="head">Music Player</div>
-      <div class="img-container">
-        <img src="img10.jpg" alt="music-cover" id="cover" />
-      </div>
-
-    <div class="music-container" id="music-container">
-             <div class="music-info" id="music-info">
-        <h4 id="title"></h4>
-        <div class="progress-container" id="progress-container">
-          <div class="progress" id="progress"></div>
+    <div class="main-container">
+      <div class="card">
+        <div class="Phantom">Phantom</div>
+        <div class="head">Music Player</div>
+        <div class="img-container">
+          <img src="img10.jpg" alt="music-cover" id="cover" />
+        </div>
+        
+        <div class="music-container" id="music-container">
+          <div class="music-info" id="music-info">
+            <h4 id="title"></h4>
+            <div class="progress-container" id="progress-container">
+              <div class="progress" id="progress"></div>
+            </div>
+          </div>
+          <audio src="CKay.mp3" id="audio"></audio>
+          <div class="navigation">
+            <button id="prev" class="action-btn">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button id="play" class="action-btn action-btn-big">
+              <i class="fas fa-play"></i>
+            </button>
+            <button id="next" class="action-btn">
+              <i class="fas fa-forward"></i>
+            </button>
+        
+          </div>
+          <div class="navigation">
+            <button id="playlist" class="action-btn" ondblclick="clos()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <button id="shuffle" class="action-btn">
+              <i class="fas fa-random"></i>
+            </button>
+            <p><button type="button" onclick="runSpeechRecognition()" class="action-btn action-btn-big"><i
+                  class="fas fa-microphone"></i></button> &nbsp; <span id="action"></span></p>
+            <div id="output" class="hide"></div>
+            <button id="timer" class="action-btn">
+              <i class="fas fa-stopwatch"></i>
+            </button>
+            <button id="mute" class="action-btn">
+              <i class="fas fa-volume-mute"></i>
+            </button>
+          </div>
+          <div id="time-info"></div>
+          <div class="timer" id="timer-info">
+            <div class="timer-container">
+              <div class="button-timer">
+                <button onclick="fifteen()">15 mins</button>
+              </div>
+              
+              <div class="button-timer">
+                <button onclick="thirty()">30 mins</button>
+              </div>
+              <div class="button-timer">
+                <button onclick="fourty()">45 mins</button>
+              </div>
+              <div class="button-timer">
+                <button onclick="off()">off</button>
+              </div>
+            </div>
+          </div>
+          <div id="playlist-item">
+          </div>
+          <footer>
+            Powered By <span>Phantom musica</span>
+          </footer>
         </div>
       </div>
-       <audio src="CKay.mp3" id="audio"></audio>
-      <div class="navigation">
-        <button id="prev" class="action-btn">
-          <i class="fas fa-backward"></i>
-        </button>
-        <button id="play" class="action-btn action-btn-big">
-          <i class="fas fa-play"></i>
-        </button>
-        <button id="next" class="action-btn">
-          <i class="fas fa-forward"></i>
-        </button>
-
-      </div>
-      <div class="navigation">
-  <button id="playlist" class="action-btn" ondblclick="clos()">
-  <i class="fas fa-bars" ></i>
-  </button>
-  <button id="shuffle" class="action-btn">
-  <i class="fas fa-random" ></i>
-  </button>
-   <p><button type="button" onclick="runSpeechRecognition()" class="action-btn action-btn-big"><i class="fas fa-microphone"></i></button> &nbsp; <span id="action"></span></p>
-        <div id="output" class="hide"></div>
-  <button id="timer" class="action-btn">
-  <i class="fas fa-stopwatch"></i>
-  </button>
-  <button id="mute" class="action-btn">
-  <i class="fas fa-volume-mute"></i>
-  </button>
-   </div>
-   <div id="playlist-item">
-   </div>
-<footer>
-  Powered By <span>Phantom musica</span>
-</footer>
-</div>
+    </div>
     <script src="/js/Index.js"></script>
   </body>
 </html>

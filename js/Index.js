@@ -122,17 +122,19 @@ function pauseSong() {
 }
 //playlist
 function playlist() {
-  console.log(songs)
-// for (var i = 0; i < songs.length; i++) {
-//   var buttons = document.createElement("button");
-//   buttons.innerHTML = songs[i];
-//   let songIndex = i;
-//   buttons.addEventListener("click", function() {
-//       loadSong(songs[songIndex]);
-//       playSong();
-//   })
-//   playlistItems.appendChild(buttons);
-//}
+
+  for (var i = 0; i < songs.length; i++) {
+    
+    var buttons = document.createElement("button");
+    buttons.innerHTML = songs[i];
+    let songIndex = i;
+    buttons.addEventListener("click", function() {
+        loadSong(songs[songIndex]);
+        playSong();
+    })
+    playlistItems.appendChild(buttons);
+
+  }
 }
 // Previous song
 function prevSong() {

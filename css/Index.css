@@ -19,9 +19,9 @@ body {
 .main-container{
   margin-top: 1rem;
   border-radius: 25px;
-  background: #f2f2f2;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.30), 0 11px 8px rgba(0, 0, 0, 0.22);
-
+background: #f2f2f2;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.5s;
   height: 100vh;
   display: flex;
   width:50%;
@@ -124,7 +124,9 @@ width: 100%;
 }
 /* styling the music-info div by placing it under the music container */
 .music-info {
-background: #595859;
+/* background: #595859; */
+background-color: rgb(30, 30, 30);
+  box-shadow: inset 0px 0px 2em rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   width: 90%;
   padding:20px;
@@ -208,6 +210,14 @@ footer {
   
 }
 @media screen and (max-width: 768px) {
+  .Phantom { 
+    font-size:40px;
+    padding-top: 19px;
+  }
+  .head {
+    font-size: 28px;
+  }
+
   .main-container{
     width: 95%;
   }

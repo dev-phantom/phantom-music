@@ -14,11 +14,9 @@ const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const currTime = document.querySelector('#currTime');
 const timeInfo = document.querySelector('#time-info')
-// const timerBtn = document.querySelector('#timer');
+const playlistItem = document.querySelector('#playlist-items');
 
-$('#timer').click(function(){
-  $('#timer-info').toggle()
-})
+
 let test = true;
 let timeOut
 function millsTomin(mills) {
@@ -32,7 +30,6 @@ function millsTomin(mills) {
 
 }
 let sol = millsTomin(900000)
-console.log(sol)
 function fifteen() {
   test = true
 
@@ -100,12 +97,14 @@ loadSong(songs[songIndex]);
 // Update song details
 function loadSong(song) {
   title.innerText = song;
-  audio.src = `musics/${song}.mp3`;
-  cover.src = `musics-images/${song}.jpg`;
+  audio.src = `music/${song}.mp3`;
+  cover.src = `images/${song}.jpg`;
 }
 
 // Play song
 function playSong() {
+  cover.style.animationPlayState = "running";
+
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
   playBtn.querySelector('i.fas').classList.add('fa-pause');
@@ -115,27 +114,22 @@ function playSong() {
 
 // Pause song
 function pauseSong() {
+  cover.style.animationPlayState = "paused";
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.add('fa-play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
   audio.pause();
 }
+
+//timer
+$('#timer').click(function(){
+  $('#timer-info').toggle()
+})
 //playlist
-function playlist() {
+$('#playlist').click(function(){
+  $('#playlist-items').toggle()
+})
 
-  for (var i = 0; i < songs.length; i++) {
-    
-    var buttons = document.createElement("button");
-    buttons.innerHTML = songs[i];
-    let songIndex = i;
-    buttons.addEventListener("click", function() {
-        loadSong(songs[songIndex]);
-        playSong();
-    })
-    playlistItems.appendChild(buttons);
-
-  }
-}
 // Previous song
 function prevSong() {
   songIndex--;
@@ -200,11 +194,36 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
+// functions for each song
 
-// function Timer() {
-//   timerInfo.style.display ="flex"
+function lie() {
+  loadSong(songs[0]);
+  playSong();
 
-// }
+  playlistItem.style.display =  "none"
+  
+}
+function bloody() {
+  loadSong(songs[1]);
+  playSong();
+
+  playlistItem.style.display =  "none"
+  
+}
+function love() {
+  loadSong(songs[2]);
+  playSong();
+
+  playlistItem.style.display =  "none"
+  
+}
+function away() {
+  loadSong(songs[3]);
+  playSong();
+
+  playlistItem.style.display =  "none"
+  
+}
 
 // Event listeners play and pause
 playBtn.addEventListener('click', () => {

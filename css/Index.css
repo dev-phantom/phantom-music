@@ -19,7 +19,7 @@ body {
 .main-container{
   margin-top: 1rem;
   border-radius: 25px;
-background: #f2f2f2;
+  background: #f2f2f2;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   transition-duration: 0.5s;
   height: 100vh;
@@ -172,9 +172,76 @@ background-color: rgb(30, 30, 30);
 			.show {
 			    display:block;
 			}
-.playlist {
-  display: none;
-}
+    #playlist-items {
+      display: none;
+    }
+    #playlist-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    #playlist-item > .card {
+      width: 90%;
+      height: 90vh;
+      background: #f2f2f2;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+      transition-duration: 0.5s;
+      border-radius: .5rem;
+      position: fixed;
+      top: 1rem;
+
+    }
+    .card > .title{
+      font-size: 20px;
+      padding: 2rem 0 1rem 0;
+      font-weight: bold;
+    }
+
+    .card > .btn-a{
+      background: #dbdbdb;
+      width: 100%;
+      padding: 1rem ;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      text-align: left;
+      text-transform: capitalize;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .btn-a > .song-title{
+      font-weight: bold;
+      font-size: 20px;
+
+    }
+    .btn-a > .artist{
+      font-size: 15px;
+      color: orangered;
+    }
+    .card > .btn-b{
+      background: #e7e7e7;
+      width: 100%;
+      margin: 8px 0;
+      padding: 1rem ;
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      text-align: left;
+      text-transform: capitalize;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .btn-b > .song-title{
+      font-weight: bold;
+      font-size: 20px;
+
+    }
+    .btn-b > .artist{
+      font-size: 15px;
+      color: orangered;
+    }
+
 footer > span{
   color: orangered;
   font-weight: bolder;
@@ -234,3 +301,5 @@ footer {
 
   }
 }
+
+
